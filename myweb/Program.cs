@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using myweb.Data;
+
 namespace myweb
 {
     public class Program
@@ -8,6 +11,10 @@ namespace myweb
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Connect AppDbContext to SQL Server using the connection string from appsettings.json
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
