@@ -3,7 +3,6 @@ using myweb.Models;
 
 namespace myweb.Data
 {
-    // The bridge between our C# classes and the SQL Server database
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -11,8 +10,10 @@ namespace myweb.Data
         }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Bid> Bids { get; set; } 
+        public DbSet<Feature> Features { get; set; }
 
-        // Sample data that the migration inserts into the database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
