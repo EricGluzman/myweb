@@ -26,6 +26,18 @@ namespace myweb.Controllers
         {
             return View();
         }   
+        public IActionResult Features()
+        {
+            return View();
+        }   
+        public IActionResult Bids()
+        {
+            return View();
+        }   
+        public IActionResult Cars()
+        {
+            return View();
+        }   
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

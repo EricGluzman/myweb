@@ -7,7 +7,7 @@
         public DateTime BidDate { get; set; } = DateTime.Now;
 
         public int ClientId { get; set; }
-        public Client? Client { get; set; } 
+        public Client? Client { get; set; }     
         public int CarId { get; set; }
         public Car Car { get; set; } = null!;
     }
