@@ -15,25 +15,21 @@ else
         <thead class="table-dark">
             <tr>
                 <th>#</th>
-                <th>Amount/th>
+                <th>Amount</th>
                 <th>Bid Date</th>
-                <th>Client ID</th>
                 <th>Client Info</th>
-                <th>Car Id</th>
                 <th>Car Info</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var car in Model)
+            @foreach (var bid in Model)
             {
                 <tr>
-                    <td>@car.Id</td>
-                    <td>@car.Amount</td>
-                    <td>@car.BidDate.JoinDate.ToString("dd/MM/yyyy")</td>
-                    <td>@car.ClientId</td>
-                    <td>@car.Client</td>
-                    <td>@car.CarId</td>
-                    <td>@car.Car</td>
+                    <td>@bid.Id</td>
+                    <td>@bid.Amount</td>
+                    <td>@bid.BidDate.ToString("dd/MM/yyyy")</td>
+                    <td>@bid.Client?.FullName</td>
+                    <td>@bid.Car?.Brand</td>
                 </tr>
             }
         </tbody>

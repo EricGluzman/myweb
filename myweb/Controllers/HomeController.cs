@@ -1,18 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using myweb.Models;
-
+using Microsoft.EntityFrameworkCore;   
+using myweb.Data;                       
 namespace myweb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
-
+        public IActionResult Bids()
+        {
+            var bids = _db.Bids
+                          .Include(b => b.Client)   // also load the client of each bid
+                          .Include(b => b.Car)      // also load the car of each bid
+                          .ToList();
+            return View(bids);                      // send the list to the view
+        }
         public IActionResult Index()
         {
             return View();
@@ -30,10 +40,6 @@ namespace myweb.Controllers
         {
             return View();
         }   
-        public IActionResult Bids()
-        {
-            return View();
-        }   
         public IActionResult Cars()
         {
             return View();
@@ -44,5 +50,6 @@ namespace myweb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
