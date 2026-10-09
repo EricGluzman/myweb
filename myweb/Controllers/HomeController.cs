@@ -23,6 +23,16 @@ namespace myweb.Controllers
                           .ToList();
             return View(bids);                      // send the list to the view
         }
+        public IActionResult Cars()
+        {
+            var cars = _db.Cars.Include(c => c.Bids).ToList();
+            return View(cars);
+        }   
+        public IActionResult Features()
+        {
+            var features = _db.Features.Include(f => f.Cars).ToList();
+            return View(features);
+        }   
         public IActionResult Index()
         {
             return View();
@@ -33,14 +43,6 @@ namespace myweb.Controllers
             return View();
         }
         public IActionResult Tables()
-        {
-            return View();
-        }   
-        public IActionResult Features()
-        {
-            return View();
-        }   
-        public IActionResult Cars()
         {
             return View();
         }   

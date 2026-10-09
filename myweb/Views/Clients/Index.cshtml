@@ -19,6 +19,7 @@ else
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Join Date</th>
+                <th>Bid Id</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,21 @@ else
                     <td>@client.Email</td>
                     <td>@client.Phone</td>
                     <td>@client.JoinDate.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        @if (client.Bids.Count == 0)
+                        {
+                            <span class="text-muted">None</span>
+                        }
+                        else
+                        {
+                            <ul class="mb-0">
+                                @foreach (var bid in client.Bids)
+                                {
+                                    <li>@bid.Id</li>
+                                }
+                            </ul>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

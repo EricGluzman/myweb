@@ -5,3 +5,49 @@
 
 <h1>Cars</h1>
 
+@if (Model.Count == 0)
+{
+    <p>No Cars yet.</p>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Price Per Day</th>
+                <th>Last Bids</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model)
+            {
+                <tr>
+                    <td>@car.Id</td>
+                    <td>@car.Brand</td>
+                    <td>@car.Model</td>
+                    <td>@car.Year</td>
+                    <td>@car.PricePerDay</td>
+                    <td>
+                        @if (car.Bids.Count == 0)
+                        {
+                            <span class="text-muted">None</span>
+                        }
+                        else
+                        {
+                            <ul class="mb-0">
+                                @foreach (var bid in car.Bids)
+                                {
+                                    <li>@bid.Amount</li>
+                                }
+                            </ul>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
