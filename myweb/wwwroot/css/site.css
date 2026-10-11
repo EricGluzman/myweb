@@ -29,3 +29,18 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.text-tiny {
+    font-size: 0.8rem;
+}
+.text-macro {
+    font-size: 0.75rem;
+}
+.text-micro {
+    font-size: 0.35rem;
+}
+.text-small {
+    font-size: 0.9rem;
+}
+.text-medium {
+    font-size: 1rem;
+}
