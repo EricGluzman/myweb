@@ -15,4 +15,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
   </ItemGroup>
 
+  <!-- OldCode = old pages kept only for reference, not part of the site -->
+  <ItemGroup>
+    <Compile Remove="OldCode\**" />
+    <Content Remove="OldCode\**" />
+    <None Include="OldCode\**" />
+  </ItemGroup>
+
 </Project>
