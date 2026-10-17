@@ -9,6 +9,6 @@
         public int ClientId { get; set; }
         public Client? Client { get; set; }     
         public int CarId { get; set; }
-        public Car Car { get; set; } = null!;
+        public Car? Car { get; set; }
     }
 }
